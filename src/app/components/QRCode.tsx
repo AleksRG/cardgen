@@ -5,7 +5,7 @@ import domtoimage from "dom-to-image";
 import QRCode from "react-qr-code";
 
 const MAX_NAME_LENGTH = 10;
-const MAX_INFO_LENGTH = 20;
+const MAX_INFO_LENGTH = 30;
 
 const downloadFile = (url: string, filename: string) => {
   const anchorElement = document.createElement("a");
@@ -60,8 +60,10 @@ const App: React.FC = () => {
       >
         <div className="w-1/2 h-full bg-[url(/3.png)] bg-center rounded-l-3xl"></div>
         <div className="flex flex-col justify-around h-full p-4 text-end w-1/2 items-end">
-          <div className="w-full  flex flex-col">
-            <span className="text-6xl font-[600]">{name}</span>
+          <div className="w-full flex flex-col">
+            <div className="overflow-hidden">
+              <span className="text-6xl font-[600]">{name}</span>
+            </div>
             <span className="tracking-tight text-xl">{info}</span>
           </div>
           <div className="mx-auto">
