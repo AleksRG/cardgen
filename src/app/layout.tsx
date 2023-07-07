@@ -15,7 +15,7 @@ const bruno = Bruno_Ace({
 });
 
 const title = "Card Generator";
-const description = "The best Card Generator Ever";
+const description = "The Best Card Generator Ever";
 export const metadata: Metadata = {
   title,
   description,
@@ -37,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-white">
       <body className={bruno.className}>{children}</body>
     </html>
   );

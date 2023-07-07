@@ -1,11 +1,10 @@
 "use client";
 import React, { useRef, useState } from "react";
-// import QRCodeStyling from "qr-code-styling";
 import domtoimage from "dom-to-image";
 import QRCode from "react-qr-code";
 
-const MAX_NAME_LENGTH = 10;
-const MAX_INFO_LENGTH = 30;
+const MAX_NAME_LENGTH = 20;
+const MAX_INFO_LENGTH = 40;
 
 const downloadFile = (url: string, filename: string) => {
   const anchorElement = document.createElement("a");
@@ -14,13 +13,21 @@ const downloadFile = (url: string, filename: string) => {
   anchorElement.click();
 };
 
-const App: React.FC = () => {
+function QrCode() {
   const [url, setUrl] = useState("https://www.soltree.xyz/");
   const [fileExt, setFileExt] = useState("png");
-  const [name, setName] = useState("alexrg");
+  const [name, setName] = useState("ALEXRG");
   const [info, setInfo] = useState("CTO SOLTREE.XYZ");
+  const [image, setImage] = useState("ML9466");
+  const [color, setColor] = useState("pink");
   const ref = useRef<HTMLDivElement>(null);
 
+  const onImageChange = (event: { target: { value: string } }) => {
+    setImage(event.target.value);
+  };
+  const onColorChange = (event: { target: { value: string } }) => {
+    setColor(event.target.value);
+  };
   const onExtensionChange = (event: { target: { value: string } }) => {
     setFileExt(event.target.value);
   };
@@ -50,64 +57,139 @@ const App: React.FC = () => {
         });
     }
   };
+  let className = "";
 
+  switch (color) {
+    case "sky":
+      className = "bg-gradient-to-r from-sky-700 via-sky-500 to-sky-700";
+      break;
+    case "cyan":
+      className = "bg-gradient-to-r from-cyan-700 via-cyan-500 to-cyan-700";
+      break;
+    case "pink":
+      className = "bg-gradient-to-r from-pink-700 via-pink-500 to-pink-700";
+      break;
+    case "rose":
+      className = "bg-gradient-to-r from-rose-700 via-rose-500 to-rose-700";
+      break;
+    case "amber":
+      className = "bg-gradient-to-r from-amber-700 via-amber-500 to-amber-700";
+      break;
+    case "yellow":
+      className =
+        "bg-gradient-to-r from-yellow-700 via-yellow-500 to-yellow-700";
+      break;
+    case "lime":
+      className = "bg-gradient-to-r from-lime-700 via-lime-500 to-lime-700";
+      break;
+    case "gray":
+      className = "bg-gradient-to-r from-gray-700 via-gray-500 to-gray-700";
+      break;
+    case "black":
+      className = "bg-gradient-to-r from-gray-950 via-gray-900 to-gray-950";
+      break;
+    // Add more cases for additional colors
+    default:
+      className = "";
+      break;
+  }
   return (
-    <div>
+    <div className="w-full justify-center flex flex-col items-center">
       {/* Card */}
       <div
-        className="bg-amber-500 flex w-[700px] items-end uppercase justify-around rounded-3xl h-[400px] "
+        className={`${className} w-[700px] uppercase rounded-3xl h-[400px] flex items-start justify-start relative group overflow-hidden`}
         ref={ref}
       >
-        <div className="w-1/2 h-full bg-[url(/3.png)] bg-center rounded-l-3xl"></div>
-        <div className="flex flex-col justify-around h-full p-4 text-end w-1/2 items-end">
-          <div className="w-full flex flex-col">
-            <div className="overflow-hidden">
-              <span className="text-6xl font-[600]">{name}</span>
-            </div>
-            <span className="tracking-tight text-xl">{info}</span>
+        <div className={`w-2/3 h-full absolute flex justify-center items-end`}>
+          <img src={`/profile/${image}.png`} className=" " />
+        </div>
+        <div className="flex relative  flex-col w-full justify-around h-full text-end items-end">
+          <div className="ml-auto w-2/3 flex flex-col px-4 tracking-tight">
+            <span className="text-6xl font-[600]">{name}</span>
+            <span className="text-xl">{info}</span>
           </div>
-          <div className="mx-auto">
-            <QRCode
-              value={url}
-              size={150}
-              bgColor="#111111"
-              fgColor="#FFFFFF"
-              level="L"
-            />
-          </div>
-          <div className="w-full flex items-center justify-center h-10">
-            <img src="logo_su.svg" className="h-14" />
-            <img src="logoSmoll.png" className="h-14 mr-2" />
-            <img src="SFLogo.png" className="h-8" />
+          <QRCode
+            value={url}
+            size={120}
+            bgColor="#ffffff"
+            fgColor="rgb(17 24 39)"
+            level="L"
+            className="mx-4"
+          />
+
+          <div className="w-full flex gap-4 items-center justify-end h-12 px-4 py-0.5 bg-gradient-to-r from-gray-950/80 via-gray-900/50 to-gray-950/80">
+            <img src="logoSmoll.png" className="h-full" />
+            <img src="MD.png" className="h-full" />
+            <img src="tenzon.png" className="h-full" />
+            <img src="LILYlogo.png" className="h-full" />
+            <img src="logo_su.svg" className=" h-full" />
+            <img src="SMark.png" className="h-7" />
           </div>
         </div>
-      </div>
-
-      <div className="flex justify-start gap-4 mt-20 w-full max-w-3xl flex-wrap">
+      </div>{" "}
+      <div className="flex justify-start gap-4 max-w-2xl mt-20 w-full  flex-wrap">
         <input
           type="text"
           value={url}
           onChange={handleLinkChange}
-          className="bg-amber-500 text-black rounded-full px-8 w-fit py-1"
+          className="bg-gray-950 text-white rounded-full px-8 w-fit py-1"
         />
         <input
           type="text"
           value={name}
           onChange={handleNameChange}
           maxLength={MAX_NAME_LENGTH}
-          className="bg-amber-500 text-black rounded-full px-8 w-fit py-1"
+          className="bg-gray-950 text-white rounded-full px-8 w-fit py-1"
         />
         <input
           type="text"
           value={info}
           onChange={handleInfoChange}
           maxLength={MAX_INFO_LENGTH}
-          className="bg-amber-500 text-black rounded-full px-8 w-fit py-1"
+          className="bg-gray-950 text-white rounded-full px-8 w-fit py-1"
         />
+      </div>
+      <div className="flex justify-start gap-4 max-w-2xl my-10 w-full  flex-wrap">
+        {" "}
+        <select
+          value={image}
+          onChange={onImageChange}
+          className="bg-gray-950 text-white rounded-full px-8 w-80 py-1"
+        >
+          <option value="ML2138">MadLands-2138 female</option>{" "}
+          <option value="ML2450">MadLands-2450 female</option>
+          <option value="ML3081">MadLands-3081 female</option>
+          <option value="ML6438">MadLands-6438 female</option>
+          <option value="ML2385">MadLands-2385 male</option>
+          <option value="ML7021">MadLands-7021 male</option>
+          <option value="ML7607">MadLands-7607 male</option>
+          <option value="ML9466">MadLands-9466 male</option>
+          <option value="LILY4097">Lily-4097 female</option>
+          <option value="LILY5884">Lily-5884 male</option>
+        </select>
+        <select
+          value={color}
+          onChange={onColorChange}
+          className={`bg-gray-950 text-white rounded-full px-8 w-80 py-1`}
+        >
+          {" "}
+          <option value="pink">Pink</option>
+          <option value="amber">Orange</option>
+          <option value="yellow">Yellow</option>
+          <option value="lime">Lime</option>
+          <option value="rose">Rose</option>
+          <option value="sky">Sky</option>
+          <option value="cyan">Cyan</option>
+          <option value="gray">Gray</option>
+          <option value="black">Black</option>
+        </select>
+      </div>
+      <div className="flex justify-start gap-4 max-w-2xl w-full flex-wrap">
+        {" "}
         <select
           value={fileExt}
           onChange={onExtensionChange}
-          className="bg-amber-500 text-black rounded-full px-8 w-fit py-1 flex justify-center"
+          className="bg-gray-950 text-white rounded-full px-8 w-fit py-1 flex justify-center"
         >
           <option value="png">PNG</option>
           <option value="jpeg">JPEG</option>
@@ -115,13 +197,13 @@ const App: React.FC = () => {
         </select>
         <button
           onClick={onDownloadClick}
-          className="bg-amber-500 text-black rounded-full px-8 w-fit py-1"
+          className="bg-gray-950 text-white rounded-full px-8 w-fit py-1"
         >
           Download
         </button>
       </div>
     </div>
   );
-};
+}
 
-export default App;
+export default QrCode;
