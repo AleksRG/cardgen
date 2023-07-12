@@ -94,14 +94,14 @@ function QrCode() {
       break;
   }
   return (
-    <div className="w-full justify-center flex flex-col items-center">
+    <div className="w-full justify-center flex flex-col items-center bg-transparent">
       {/* Card */}
       <div
-        className={`${className} w-[700px] uppercase rounded-3xl h-[400px] flex items-start justify-start relative group overflow-hidden`}
+        className={`${className} w-[700px] uppercase rounded-3xl h-[400px] flex items-start justify-start relative group overflow-hidden shadow-2xl shadow-black text-white`}
         ref={ref}
       >
-        <div className={`w-2/3 h-full absolute flex justify-center items-end`}>
-          <img src={`/profile/${image}.png`} className=" " />
+        <div className={`w-2/3 h-full absolute flex justify-center items-end `}>
+          <img src={`/profile/${image}.png`} className="" />
         </div>
         <div className="flex relative  flex-col w-full justify-around h-full text-end items-end">
           <div className="ml-auto w-2/3 flex flex-col px-4 tracking-tight">
@@ -114,15 +114,16 @@ function QrCode() {
             bgColor="#ffffff"
             fgColor="rgb(17 24 39)"
             level="L"
-            className="mx-4"
+            className="mx-4 rounded-md"
           />
 
           <div className="w-full flex gap-4 items-center justify-end h-12 px-4 py-0.5 bg-gradient-to-r from-gray-950/80 via-gray-900/50 to-gray-950/80">
             <img src="logoSmoll.png" className="h-full" />
-            <img src="MD.png" className="h-full" />
             <img src="tenzon.png" className="h-full" />
-            <img src="LILYlogo.png" className="h-full" />
-            <img src="logo_su.svg" className=" h-full" />
+            <img src="drip2.png" className="h-7" />
+            <img src="solflare.png" className="h-8" />
+            <img src="Phantom.png" className="h-7" />
+            <img src="logo_su.svg" className="h-full" />
             <img src="SMark.png" className="h-7" />
           </div>
         </div>
@@ -149,7 +150,7 @@ function QrCode() {
           className="bg-gray-950 text-white rounded-full px-8 w-fit py-1"
         />
       </div>
-      <div className="flex justify-start gap-4 max-w-2xl my-10 w-full  flex-wrap">
+      <div className="flex justify-start gap-4 max-w-2xl my-10 w-full flex-wrap">
         {" "}
         <select
           value={image}
@@ -166,6 +167,9 @@ function QrCode() {
           <option value="ML9466">MadLands-9466 male</option>
           <option value="LILY4097">Lily-4097 female</option>
           <option value="LILY5884">Lily-5884 male</option>
+          <option value="amy">Amy</option>
+          <option value="SoltreeLogo">Soltree</option>
+          <option value="mc">MC</option>
         </select>
         <select
           value={color}
