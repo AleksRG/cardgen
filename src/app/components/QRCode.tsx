@@ -168,7 +168,7 @@ function QrCode() {
           <option value="LILY4097">Lily-4097 female</option>
           <option value="LILY5884">Lily-5884 male</option>
           <option value="amy">Amy</option>
-          <option value="SoltreeLogo">Soltree</option>
+          <option value="soltreeLogo">Soltree</option>
           <option value="mc">MC</option>
         </select>
         <select
