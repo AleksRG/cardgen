@@ -17,7 +17,7 @@ function QrCode() {
   const [url, setUrl] = useState("https://www.soltree.xyz/");
   const [fileExt, setFileExt] = useState("png");
   const [name, setName] = useState("ALEXRG");
-  const [info, setInfo] = useState("CTO SOLTREE.XYZ");
+  const [info, setInfo] = useState("FOUNDER SOLTREE.XYZ");
   const [image, setImage] = useState("ML9466");
   const [color, setColor] = useState("pink");
   const ref = useRef<HTMLDivElement>(null);
@@ -60,17 +60,39 @@ function QrCode() {
   let className = "";
 
   switch (color) {
+    case "cyan":
+      className = "bg-gradient-to-r from-cyan-700 via-cyan-500 to-cyan-700";
+      break;
+    case "teal":
+      className = "bg-gradient-to-r from-teal-700 via-teal-500 to-teal-700";
+      break;
     case "sky":
       className = "bg-gradient-to-r from-sky-700 via-sky-500 to-sky-700";
       break;
-    case "cyan":
-      className = "bg-gradient-to-r from-cyan-700 via-cyan-500 to-cyan-700";
+    case "blue":
+      className = "bg-gradient-to-r from-blue-700 via-blue-500 to-blue-700";
+      break;
+    case "indigo":
+      className =
+        "bg-gradient-to-r from-indigo-700 via-indigo-500 to-indigo-700";
+      break;
+    case "fuchsia":
+      className =
+        "bg-gradient-to-r from-fuchsia-700 via-fuchsia-500 to-fuchsia-700";
       break;
     case "pink":
       className = "bg-gradient-to-r from-pink-700 via-pink-500 to-pink-700";
       break;
     case "rose":
       className = "bg-gradient-to-r from-rose-700 via-rose-500 to-rose-700";
+      break;
+    case "purple":
+      className =
+        "bg-gradient-to-r from-purple-700 via-purple-500 to-purple-700";
+      break;
+    case "violet":
+      className =
+        "bg-gradient-to-r from-violet-700 via-violet-500 to-violet-700";
       break;
     case "amber":
       className = "bg-gradient-to-r from-amber-700 via-amber-500 to-amber-700";
@@ -82,13 +104,27 @@ function QrCode() {
     case "lime":
       className = "bg-gradient-to-r from-lime-700 via-lime-500 to-lime-700";
       break;
+    case "green":
+      className = "bg-gradient-to-r from-green-700 via-green-500 to-green-700";
+      break;
+    case "emerald":
+      className =
+        "bg-gradient-to-r from-emerald-700 via-emerald-500 to-emerald-700";
+      break;
     case "gray":
       className = "bg-gradient-to-r from-gray-700 via-gray-500 to-gray-700";
+      break;
+    case "neutral":
+      className =
+        "bg-gradient-to-r from-neutral-700 via-neutral-500 to-neutral-700";
+      break;
+    case "stone":
+      className = "bg-gradient-to-r from-stone-700 via-stone-500 to-stone-700";
       break;
     case "black":
       className = "bg-gradient-to-r from-gray-950 via-gray-900 to-gray-950";
       break;
-    // Add more cases for additional colors
+
     default:
       className = "";
       break;
@@ -170,6 +206,7 @@ function QrCode() {
           <option value="amy">Amy</option>
           <option value="soltreeLogo">Soltree</option>
           <option value="mc">MC</option>
+          <option value="frog">G-Wizz Solana Frog</option>
         </select>
         <select
           value={color}
@@ -177,14 +214,24 @@ function QrCode() {
           className={`bg-gray-950 text-white rounded-full px-8 w-80 py-1`}
         >
           {" "}
+          <option value="cyan">Cyan</option>
+          <option value="teal">Teal</option>
+          <option value="sky">Sky</option>
+          <option value="emerald">Emerald</option>
+          <option value="blue">Blue</option>
+          <option value="indigo">Indigo</option>
           <option value="pink">Pink</option>
+          <option value="purple">Purple</option>
+          <option value="fuchsia">Fuchsia</option>
+          <option value="violet">Violet</option>
           <option value="amber">Orange</option>
           <option value="yellow">Yellow</option>
           <option value="lime">Lime</option>
+          <option value="green">Green</option>
           <option value="rose">Rose</option>
-          <option value="sky">Sky</option>
-          <option value="cyan">Cyan</option>
           <option value="gray">Gray</option>
+          <option value="stone">Stone</option>
+          <option value="neutral">Neutral</option>
           <option value="black">Black</option>
         </select>
       </div>
