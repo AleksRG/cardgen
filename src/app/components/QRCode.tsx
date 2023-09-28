@@ -195,6 +195,7 @@ function QrCode() {
           <option value="TENSORIANS-9041">TENSORIANS-9041</option>{" "}
           <option value="TENSORIANS-9209">TENSORIANS-9209</option>{" "}
           <option value="TENSORIANS-9694">TENSORIANS-9694</option>{" "}
+          <option value="IS-325">IS-325</option>{" "}
           <option value="SMB-1234">SMB-1234</option>{" "}
           <option value="SMB-3370">SMB-3370</option>{" "}
           <option value="SMB-4783">SMB-4783</option>{" "}

@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Metadata } from "next";
-import { Audiowide, Bruno_Ace } from "next/font/google";
+import {  Bruno_Ace } from "next/font/google";
 
 const bruno = Bruno_Ace({
   weight: "400",
