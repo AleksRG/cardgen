@@ -2,12 +2,6 @@ import "./globals.css";
 import { Metadata } from "next";
 import { Audiowide, Bruno_Ace } from "next/font/google";
 
-const audiowide = Audiowide({
-  weight: "400",
-  style: "normal",
-
-  preload: false,
-});
 const bruno = Bruno_Ace({
   weight: "400",
   style: "normal",
@@ -15,7 +9,7 @@ const bruno = Bruno_Ace({
 });
 
 const title = "Card Generator";
-const description = "The Best Card Generator Ever";
+const description = "the best card generator on the fucking planet";
 export const metadata: Metadata = {
   title,
   description,
