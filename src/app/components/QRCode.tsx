@@ -14,12 +14,12 @@ const downloadFile = (url: string, filename: string) => {
 };
 
 function QrCode() {
-  const [url, setUrl] = useState("https://www.soltree.xyz/");
+  const [url, setUrl] = useState("https://www.rrgen.xyz/");
   const [fileExt, setFileExt] = useState("png");
-  const [name, setName] = useState("ALEXRG");
-  const [info, setInfo] = useState("FOUNDER SOLTREE.XYZ");
-  const [image, setImage] = useState("ML9466");
-  const [color, setColor] = useState("pink");
+  const [name, setName] = useState("ALEX ON REKT");
+  const [info, setInfo] = useState("FOUNDER RICHIE RICH");
+  const [image, setImage] = useState("alex");
+  const [color, setColor] = useState("lime");
   const ref = useRef<HTMLDivElement>(null);
 
   const onImageChange = (event: { target: { value: string } }) => {
@@ -130,10 +130,10 @@ function QrCode() {
       break;
   }
   return (
-    <div className="w-full justify-center flex flex-col items-center bg-transparent">
+    <div className="w-full justify-center flex flex-col items-center text-white bg-transparent">
       {/* Card */}
       <div
-        className={`${className} w-[700px] uppercase rounded-3xl h-[400px] flex items-start justify-start relative group overflow-hidden shadow-2xl shadow-black text-white`}
+        className={`${className} w-[700px] uppercase rounded-xl h-[400px] flex items-start justify-start relative group overflow-hidden`}
         ref={ref}
       >
         <div className={`w-2/3 h-full absolute flex justify-center items-end `}>
@@ -142,25 +142,18 @@ function QrCode() {
         <div className="flex relative  flex-col w-full justify-around h-full text-end items-end">
           <div className="ml-auto w-2/3 flex flex-col px-4 tracking-tight">
             <span className="text-6xl font-[600]">{name}</span>
-            <span className="text-xl">{info}</span>
           </div>
           <QRCode
             value={url}
-            size={120}
+            size={140}
             bgColor="#ffffff"
             fgColor="rgb(17 24 39)"
             level="L"
-            className="mx-4 rounded-md"
+            className="mx-4 rounded-md "
           />
 
           <div className="w-full flex gap-4 items-center justify-end h-12 px-4 py-0.5 bg-gradient-to-r from-gray-950/80 via-gray-900/50 to-gray-950/80">
-            <img src="logoSmoll.png" className="h-full" />
-            <img src="tenzon.png" className="h-full" />
-            <img src="drip2.png" className="h-7" />
-            <img src="solflare.png" className="h-8" />
-            <img src="Phantom.png" className="h-7" />
-            <img src="logo_su.svg" className="h-full" />
-            <img src="SMark.png" className="h-7" />
+            <span className="text-xl">{info}</span>
           </div>
         </div>
       </div>{" "}
@@ -193,6 +186,23 @@ function QrCode() {
           onChange={onImageChange}
           className="bg-gray-950 text-white rounded-full px-8 w-80 py-1"
         >
+          {" "}
+          <option value="alex">Alex</option>{" "}
+          <option value="TENSORIANS-1909">TENSORIANS-1909</option>{" "}
+          <option value="TENSORIANS-3045">TENSORIANS-3045</option>{" "}
+          <option value="TENSORIANS-3829">TENSORIANS-3829</option>{" "}
+          <option value="TENSORIANS-6218">TENSORIANS-6218</option>{" "}
+          <option value="TENSORIANS-9041">TENSORIANS-9041</option>{" "}
+          <option value="TENSORIANS-9209">TENSORIANS-9209</option>{" "}
+          <option value="TENSORIANS-9694">TENSORIANS-9694</option>{" "}
+          <option value="SMB-1234">SMB-1234</option>{" "}
+          <option value="SMB-3370">SMB-3370</option>{" "}
+          <option value="SMB-4783">SMB-4783</option>{" "}
+          <option value="SMB-6217">SMB-6217</option>{" "}
+          <option value="SMB-8859">SMB-8859</option>{" "}
+          <option value="SMB-12381">SMB-12381</option>{" "}
+          <option value="SMB-11110">SMB-11110</option>{" "}
+          <option value="SMB-12381">SMB-12381</option>{" "}
           <option value="ML2138">MadLands-2138 female</option>{" "}
           <option value="ML2450">MadLands-2450 female</option>
           <option value="ML3081">MadLands-3081 female</option>
@@ -203,10 +213,7 @@ function QrCode() {
           <option value="ML9466">MadLands-9466 male</option>
           <option value="LILY4097">Lily-4097 female</option>
           <option value="LILY5884">Lily-5884 male</option>
-          <option value="amy">Amy</option>
-          <option value="soltreeLogo">Soltree</option>
           <option value="mc">MC</option>
-          <option value="frog">G-Wizz Solana Frog</option>
         </select>
         <select
           value={color}

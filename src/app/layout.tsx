@@ -37,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="bg-white">
+    <html lang="en" className="bg-whtie">
       <body className={bruno.className}>{children}</body>
     </html>
   );
